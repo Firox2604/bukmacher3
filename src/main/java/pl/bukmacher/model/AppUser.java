@@ -1,8 +1,7 @@
 package pl.bukmacher.model;
 
-import javax.persistence.*;
 import java.util.Objects;
-
+import javax.persistence.*;
 @Entity
 @Table(name = "AppUser")
 public class AppUser {
