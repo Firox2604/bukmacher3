@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>ADD EVENT</title>
+    <link rel="stylesheet" href="/style/main.css"/>
 </head>
 <body>
 <table>
@@ -26,7 +27,7 @@
         <td>Location: <input type="text" name="location"/></td>
     </tr>
     <tr>
-        <td><input type="submit" name="dodaj"/></td>
+        <td><input type="submit" name="dodaj" class="submit"/></td>
     </tr>
 </form>
 </table>

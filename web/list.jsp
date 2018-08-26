@@ -17,10 +17,10 @@
 
 <table>
 
-        <%
+        <%--<%
             List<MyEvent> events = (List<MyEvent>) application.getAttribute("events");
             for (Event event : events){
-        %>
+        %>--%>
     <tr>
         <th>LP</th>
         <th>Name</th>
@@ -124,7 +124,7 @@
         <td><input type="submit" value="Accept"/></td>
     </tr>--%>
 
-    <% } %>
+    <%--<% } %>--%>
 
 </table>
 </body>
