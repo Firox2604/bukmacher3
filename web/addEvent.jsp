@@ -8,9 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>ADD EVENT</title>
 </head>
 <body>
-$END$
+<table>
+<form method="POST" action="/doAdd">
+    <tr>
+        <td>ID: <input type="text" name="id"/></td>
+    </tr>
+    <tr>
+        <td>EventName: <input type="text" name="eventName"/></td>
+    </tr>
+    <tr>
+        <td>Date: <input type="text" name="date"/></td>
+    </tr>
+    <tr>
+        <td>Location: <input type="text" name="location"/></td>
+    </tr>
+    <tr>
+        <td><input type="submit" name="dodaj"/></td>
+    </tr>
+</form>
+</table>
 </body>
 </html>

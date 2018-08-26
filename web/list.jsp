@@ -1,4 +1,5 @@
-<%@ page import="java.awt.*" %><%--
+<%@ page import="java.awt.*" %>
+<%@ page import="pl.bukmacher.model.MyEvent" %><%--
   Created by IntelliJ IDEA.
   User: Kasia
   Date: 2018-08-26
@@ -16,10 +17,10 @@
 
 <table>
 
-        <%--<%
-            List<Event> events = (List<Event>) application.getAttribute("events");
+        <%
+            List<MyEvent> events = (List<MyEvent>) application.getAttribute("events");
             for (Event event : events){
-        %>--%>
+        %>
     <tr>
         <th>LP</th>
         <th>Name</th>
@@ -123,7 +124,7 @@
         <td><input type="submit" value="Accept"/></td>
     </tr>--%>
 
-    <%--<% } %>--%>
+    <% } %>
 
 </table>
 </body>

@@ -12,6 +12,7 @@
   </head>
   <body>
   $END$
-  <jsp:forward page="list.jsp"></jsp:forward>
+  <%--<jsp:forward page="list.jsp"></jsp:forward>--%>
+  <jsp:forward page="addEvent.jsp"></jsp:forward>
   </body>
 </html>
