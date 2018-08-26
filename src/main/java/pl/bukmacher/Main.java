@@ -5,6 +5,8 @@ import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import pl.bukmacher.model.AppUser;
+import pl.bukmacher.model.AppUserRepository;
 
 import javax.persistence.metamodel.EntityType;
 
@@ -40,6 +42,10 @@ public class Main {
                 for (Object o : query.list()) {
                     System.out.println("  " + o);
                 }
+
+                AppUser user = new AppUser("jan","kowalski","kowal","haha",102.0,"admin");
+                new AppUserRepository().save(user);
+                System.out.println("zapisano");
             }
         } finally {
             session.close();

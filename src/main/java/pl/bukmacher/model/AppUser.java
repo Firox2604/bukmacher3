@@ -1,23 +1,87 @@
 package pl.bukmacher.model;
 
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 @Entity
-@Table(name = "AppUser")
+@Table(name = "appuser")
 public class AppUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
+    @Column(name = "id_appuser", nullable = false)
     private Integer id;
-    @Column
+
+    @ManyToMany
+    @JoinTable(
+            name="appbet",
+            joinColumns=@JoinColumn(name="appuser", referencedColumnName="id_appuser"),
+            inverseJoinColumns=@JoinColumn(name="bet", referencedColumnName="id_bet"))
+    private List<Bet> bets;
+
+
+    @Column(name = "name")
     private String name;
-    @Column
+
+    @Column(name = "surname")
     private String surname;
-    @Column
+
+    @Column(name = "login")
+    private String login;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "balance")
     private Double balance;
-    @Column
+
+    @Column(name= "role")
     private String role;
-    /*@ManyToMany*/
+
+    public AppUser() {
+    }
+
+    public AppUser(String name, String surname, String login, String password, Double balance, String role) {
+        this.name = name;
+        this.surname = surname;
+        this.login = login;
+        this.password = password;
+        this.balance = balance;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", balance=" + balance +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AppUser appUser = (AppUser) o;
+        return Objects.equals(id, appUser.id) &&
+                Objects.equals(name, appUser.name) &&
+                Objects.equals(surname, appUser.surname) &&
+                Objects.equals(login, appUser.login) &&
+                Objects.equals(password, appUser.password) &&
+                Objects.equals(balance, appUser.balance) &&
+                Objects.equals(role, appUser.role);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, surname, login, password, balance, role);
+    }
 
     public Integer getId() {
         return id;
@@ -43,6 +107,22 @@ public class AppUser {
         this.surname = surname;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Double getBalance() {
         return balance;
     }
@@ -57,35 +137,5 @@ public class AppUser {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AppUser appUser = (AppUser) o;
-        return Objects.equals(id, appUser.id) &&
-                Objects.equals(name, appUser.name) &&
-                Objects.equals(surname, appUser.surname) &&
-                Objects.equals(balance, appUser.balance) &&
-                Objects.equals(role, appUser.role);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, name, surname, balance, role);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("AppUser{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", surname='").append(surname).append('\'');
-        sb.append(", balance=").append(balance);
-        sb.append(", role='").append(role).append('\'');
-        sb.append('}');
-        return sb.toString();
     }
 }
