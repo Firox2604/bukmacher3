@@ -26,12 +26,12 @@ public class MyEvent {
     private String location;
 
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     public MyEvent() {
     }
 
-    public MyEvent(String name, String location, Date date) {
+    public MyEvent(String name, String location, String date) {
         this.name = name;
         this.location = location;
         this.date = date;
@@ -88,11 +88,11 @@ public class MyEvent {
         this.location = location;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
