@@ -1,33 +1,49 @@
 package pl.bukmacher.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 
 @Entity
-@Table
+@Table (name = "bet")
 public class Bet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue
+    @Column(name = "id_bet", nullable = false)
+    private Integer id_bet;
 
-    @OneToMany
-    @Column
-    private Integer appUserId;
+    @ManyToMany(mappedBy="bets")
+    private List<AppUser> appusers;
 
-    @Column
-    private Integer eventId;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id_event")
+    private MyEvent myevent;
 
-    @Column
+
+    @Column(name = "id_types")
+    private Integer id_type;
+
+    @Column(name = "amount")
     private Double amount;
+
+    public Bet() {
+    }
+
+    public Bet(MyEvent event, Integer id_type, Double amount) {
+        this.myevent = event;
+        this.id_type = id_type;
+        this.amount = amount;
+    }
 
     @Override
     public String toString() {
         return "Bet{" +
-                "id=" + id +
-                ", appUserId=" + appUserId +
-                ", eventId=" + eventId +
+                "id=" + id_bet +
+                ", appusers=" + appusers +
+                ", event=" + myevent +
+                ", id_type=" + id_type +
                 ", amount=" + amount +
                 '}';
     }
@@ -36,41 +52,34 @@ public class Bet {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bet zaklad = (Bet) o;
-        return Objects.equals(id, zaklad.id) &&
-                Objects.equals(appUserId, zaklad.appUserId) &&
-                Objects.equals(eventId, zaklad.eventId) &&
-                Objects.equals(amount, zaklad.amount);
+        Bet bet = (Bet) o;
+        return Objects.equals(id_bet, bet.id_bet) &&
+                Objects.equals(appusers, bet.appusers) &&
+                Objects.equals(myevent, bet.myevent) &&
+                Objects.equals(id_type, bet.id_type) &&
+                Objects.equals(amount, bet.amount);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, appUserId, eventId, amount);
+        return Objects.hash(id_bet, appusers, myevent, id_type, amount);
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_bet() {
+        return id_bet;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_bet(Integer id) {
+        this.id_bet = id;
     }
 
-    public Integer getAppUserId() {
-        return appUserId;
+    public Integer getId_type() {
+        return id_type;
     }
 
-    public void setAppUserId(Integer appUserId) {
-        this.appUserId = appUserId;
-    }
-
-    public Integer getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(Integer eventId) {
-        this.eventId = eventId;
+    public void setId_type(Integer id_type) {
+        this.id_type = id_type;
     }
 
     public Double getAmount() {
