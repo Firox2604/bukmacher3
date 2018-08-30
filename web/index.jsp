@@ -1,3 +1,4 @@
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -12,7 +13,10 @@
   </head>
   <body>
   $END$
+  <%--<%@ include file="list.jsp"%>--%>
   <%--<jsp:forward page="list.jsp"></jsp:forward>--%>
-  <jsp:forward page="addEvent.jsp"></jsp:forward>
+  <%--<jsp:forward page="addEvent.jsp"></jsp:forward>--%>
+  <%--<jsp:forward page="login.jsp"></jsp:forward>--%>
+  <%--<jsp:forward page="addType.jsp"></jsp:forward>--%>
   </body>
 </html>

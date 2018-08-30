@@ -13,21 +13,19 @@
 </head>
 <body>
 <table>
-<form method="POST" action="/doAdd">
+    <h1 class="title">Add Event</h1>
+<form method="POST" action="/doAddEvent">
     <tr>
-        <td>ID: <input type="text" name="id"/></td>
+        <td>EventName: <input type="text" name="eventName" class="textRight"/></td>
     </tr>
     <tr>
-        <td>EventName: <input type="text" name="eventName"/></td>
+        <td>Date: <input type="text" name="date" class="textRight"/></td>
     </tr>
     <tr>
-        <td>Date: <input type="text" name="date"/></td>
+        <td>Location: <input type="text" name="location" class="textRight"/></td>
     </tr>
     <tr>
-        <td>Location: <input type="text" name="location"/></td>
-    </tr>
-    <tr>
-        <td><input type="submit" name="dodaj" class="submit"/></td>
+        <td><input type="submit" name="addEvent" value="Add Event" class="button add"/></td>
     </tr>
 </form>
 </table>
