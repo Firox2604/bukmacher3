@@ -1,27 +1,33 @@
 <%--
   Created by IntelliJ IDEA.
-  User: przemek
-  Date: 26.08.2018
-  Time: 12:02
+  User: Kasia
+  Date: 2018-08-26
+  Time: 13:51
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>ADD EVENT</title>
+    <link rel="stylesheet" href="/style/main.css"/>
 </head>
 <body>
-<form method="POST" action="/doAdd">
-    <br>
-    EventName: <input type="text" name="eventName"/>
-    Date: <input type="text" name="date"/>
-    Location: <input type="text" name="location"/>
-    <input type="submit" name="dodaj"/>
+<table>
+    <h1 class="title">Add Event</h1>
+<form method="POST" action="/doAddEvent">
+    <tr>
+        <td>EventName: <input type="text" name="eventName" class="textRight"/></td>
+    </tr>
+    <tr>
+        <td>Date: <input type="text" name="date" class="textRight"/></td>
+    </tr>
+    <tr>
+        <td>Location: <input type="text" name="location" class="textRight"/></td>
+    </tr>
+    <tr>
+        <td><input type="submit" name="addEvent" value="Add Event" class="button add"/></td>
+    </tr>
 </form>
+</table>
 </body>
 </html>
-
-
-
-
-
